@@ -27,6 +27,10 @@ class LoginActivity : AppCompatActivity() {
         binding.tvRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
+
+        binding.btnLogin.setOnClickListener {
+            loginUser()
+        }
     }
 
     // Realizado 01-03-2024
@@ -39,6 +43,9 @@ class LoginActivity : AppCompatActivity() {
                 val isSuccess = db.accesoUsuario(email, password)
                 if (isSuccess){
                     Toast.makeText(this, "Acceso correcto", Toast.LENGTH_SHORT).show()
+                    startActivity(Intent(this, HomeActivity::class.java))
+                    finish()
+
                 }
             }else{
                 Toast.makeText(this, "Por favor ingrese correo valido", Toast.LENGTH_SHORT).show()

@@ -74,5 +74,37 @@ class DatabaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
         return cursorCount > 0
     }
 
+    //Realizado 01-03-2024
+    fun regresaCuentas(): List<User> {
+        val columns = arrayOf(COL_USER_ID, COL_USER_EMAIL, COL_USER_NAME, COL_USER_PASSWORD)
+        val sortOrder = "$COL_USER_NAME ASC"
+        val userList = ArrayList<User>()
+
+        val db = this.readableDatabase
+        val cursor = db.query(TABLE_USER,
+            columns,
+            null,
+            null,
+            null,
+            null,
+            sortOrder)
+
+        if (cursor.moveToFirst()){
+            do{
+                val user = User(
+                    id = cursor.getString(cursor.getColumnIndexOrThrow(COL_USER_ID)).toInt(),
+                    username = cursor.getString(cursor.getColumnIndexOrThrow(COL_USER_NAME)),
+                    email = cursor.getString(cursor.getColumnIndexOrThrow(COL_USER_EMAIL)),
+                    password = cursor.getString(cursor.getColumnIndexOrThrow(COL_USER_PASSWORD)),
+                )
+                userList.add(user)
+            }while (cursor.moveToNext())
+        }
+        cursor.close()
+        db.close()
+        return userList
+    }
+
+
 
 }
