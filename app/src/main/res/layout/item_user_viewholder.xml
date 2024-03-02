@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_marginStart="16dp"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="16dp"
+    android:layout_weight="3"
+    android:background="#DFDFDF"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/tv_label_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="User ID:"
+        android:textColor="#B30000"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_label_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_id"
+        android:text="Usename:"
+        android:textColor="#B30000"
+        android:textSize="14sp"
+        android:layout_marginBottom="4dp"/>
+
+    <TextView
+        android:id="@+id/tv_label_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_label_username"
+        android:text="Email:"
+        android:textColor="#B30000"
+        android:textSize="14sp"/>
+
+    <TextView
+        android:id="@+id/tv_value_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="4dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        tools:text="Value ID:"/>
+
+    <TextView
+        android:id="@+id/tv_value_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="4dp"
+        android:textColor="#000000"
+        android:textSize="14sp"
+        tools:text="Value Username:"
+        android:layout_below="@id/tv_value_id"/>
+
+    <TextView
+        android:id="@+id/tv_value_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:textColor="#000000"
+        android:layout_marginBottom="4dp"
+        android:textSize="14sp"
+        tools:text="Value Email:"
+        android:layout_below="@id/tv_value_username"/>
+
+</RelativeLayout>
