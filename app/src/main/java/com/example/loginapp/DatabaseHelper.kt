@@ -51,5 +51,28 @@ class DatabaseHelper (context: Context) : SQLiteOpenHelper(context, DATABASE_NAM
      *  Realizado 01/03/2024
      */
 
+    fun accesoUsuario(email: String, password: String): Boolean{
+        val columns = arrayOf(COL_USER_ID)
+        val db = this.readableDatabase
+        val selection = "$COL_USER_EMAIL = ? AND $COL_USER_PASSWORD = ?"
+        val selectionArgs = arrayOf(email, password)
+
+        val cursor = db.query(
+            TABLE_USER,
+            columns,
+            selection,
+            selectionArgs,
+            null,
+            null,
+            null
+        )
+
+        val cursorCount = cursor.count
+        cursor.close()
+        db.close()
+
+        return cursorCount > 0
+    }
+
 
 }
